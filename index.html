@@ -384,64 +384,14 @@
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════════════════
-// GOOGLE SHEETS — same endpoint as the example quiz
-// ══════════════════════════════════════════════════════════════════════════════
+// Google Sheets endpoint (same as example)
 const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzvhd9K2CVC9_EPkhAEYFDp8K1CBpGUWNrEAEVC4w4Q8eHh5uDFO_aaKPMcH-Tajv5U/exec';
 
-// ══════════════════════════════════════════════════════════════════════════════
-// EXTENDED QUESTION BANK — 36 questions (9 per suffix)
-// Students add the correct suffix to the base word in brackets
-// ══════════════════════════════════════════════════════════════════════════════
-const QUESTION_BANK = [
-  // ──────────────────────── -al SUFFIX (from nouns) ────────────────────────
-  { q: "The painting's colours look incredibly ______________. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). From nature, not artificial." },
-  { q: "Their meeting was completely ______________ — they just happened to be at the same cafe. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Happening by chance." },
-  { q: "The ______________ habitat of the panda is being destroyed. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). The original environment." },
-  { q: "The damage to the car was ______________, not intentional. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Unintentional." },
-  { q: "The festival has great ______________ significance for the local community. (culture)", a: ["cultural"], hint: "culture + ___", exp: "<strong>cultural</strong> (culture + -al). Related to the arts and customs of a society." },
-  { q: "She received an ______________ award for her academic achievements. (academy)", a: ["academic"], hint: "academy + ___", exp: "<strong>academic</strong> (academy + -al). Related to education and scholarship." },
-  { q: "The ______________ benefits of regular exercise are well documented. (medicine)", a: ["medical"], hint: "medicine + ___", exp: "<strong>medical</strong> (medicine + -al). Related to health and treatment." },
-  { q: "They live in a beautiful ______________ home near the coast. (tradition)", a: ["traditional"], hint: "tradition + ___", exp: "<strong>traditional</strong> (tradition + -al). Following long-established customs." },
-  { q: "The company faced ______________ challenges after the merger. (finance)", a: ["financial"], hint: "finance + ___", exp: "<strong>financial</strong> (finance + -al). Related to money and banking." },
-
-  // ──────────────────────── -able SUFFIX (from verbs) ────────────────────────
-  { q: "After boiling for ten minutes, the water became ______________. (drink)", a: ["drinkable"], hint: "drink + ___", exp: "<strong>drinkable</strong> (drink + -able). Safe to consume." },
-  { q: "The software is highly ______________ and works on all systems. (adapt)", a: ["adaptable"], hint: "adapt + ___", exp: "<strong>adaptable</strong> (adapt + -able). Can be changed easily." },
-  { q: "His handwriting is barely ______________. (read)", a: ["readable"], hint: "read + ___", exp: "<strong>readable</strong> (read + -able). Clear enough to read." },
-  { q: "The theory is ______________ through further experiments. (test)", a: ["testable"], hint: "test + ___", exp: "<strong>testable</strong> (test + -able). Can be proved or checked." },
-  { q: "This old laptop is barely ______________ anymore. (use)", a: ["usable"], hint: "use + ___", exp: "<strong>usable</strong> (use + -able). Able to be used effectively." },
-  { q: "The mountain path was barely ______________ after the storm. (pass)", a: ["passable"], hint: "pass + ___", exp: "<strong>passable</strong> (pass + -able). Able to be travelled on." },
-  { q: "Her explanation was completely ______________. (understand)", a: ["understandable"], hint: "understand + ___", exp: "<strong>understandable</strong> (understand + -able). Easy to comprehend." },
-  { q: "Is this document ______________ on all devices? (view)", a: ["viewable"], hint: "view + ___", exp: "<strong>viewable</strong> (view + -able). Can be seen or displayed." },
-  { q: "The damage to the car is ______________. (repair)", a: ["repairable"], hint: "repair + ___", exp: "<strong>repairable</strong> (repair + -able). Can be fixed." },
-
-  // ──────────────────────── -ive SUFFIX (from verbs) ────────────────────────
-  { q: "The professor gave a very ______________ lecture. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Convincing and influential." },
-  { q: "She's very ______________ and always gets what she wants. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Confident and direct." },
-  { q: "The company's ______________ marketing helped them grow quickly. (aggress)", a: ["aggressive"], hint: "aggress + ___", exp: "<strong>aggressive</strong> (aggress + -ive). Forceful and energetic." },
-  { q: "The new drug is highly ______________ against the virus. (effect)", a: ["effective"], hint: "effect + ___", exp: "<strong>effective</strong> (effect + -ive). Successful in producing a result." },
-  { q: "His ______________ personality makes him a great leader. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Self-confident and strong-willed." },
-  { q: "The ______________ power of advertising is enormous. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Able to convince others." },
-  { q: "She has a very ______________ imagination. (create)", a: ["creative"], hint: "create + ___", exp: "<strong>creative</strong> (create + -ive). Using original ideas." },
-  { q: "The two products are ______________; they serve different markets. (distinct)", a: ["distinctive"], hint: "distinct + ___", exp: "<strong>distinctive</strong> (distinct + -ive). Characteristic and unique." },
-  { q: "His ______________ remarks caused a lot of controversy. (provoke)", a: ["provocative"], hint: "provoke + ___", exp: "<strong>provocative</strong> (provoke + -ive). Intended to cause a reaction." },
-
-  // ──────────────────────── -ant SUFFIX (from verbs) ────────────────────────
-  { q: "Lions are the ______________ predators in this ecosystem. (dominate)", a: ["dominant"], hint: "dominate + ___", exp: "<strong>dominant</strong> (dominate + -ant). Most powerful or influential." },
-  { q: "The ______________ smell of flowers filled the garden. (fragrance)", a: ["fragrant"], hint: "fragrance + ___", exp: "<strong>fragrant</strong> (fragr- + -ant). Having a pleasant smell." },
-  { q: "The two sisters have ______________ personalities. (contrast)", a: ["contrasting"], hint: "contrast + ___ (spelling change)", exp: "<strong>contrasting</strong> (contrast + -ing, but -ant appears in 'contrariant'? Better: 'different' — using 'significant'? Let me fix: 'vacant'?) Actually: 'reliant'", a2: ["reliant"], but let's use: "The ______________ applicant was hired immediately. (apply)", a: ["applicant"] — but that's a noun. For adjective -ant: 'defiant', 'reliant', 'observant'" },
-  { q: "She remained ______________ despite the criticism. (defy)", a: ["defiant"], hint: "defy → defi + ___", exp: "<strong>defiant</strong> (defy + -ant). Showing resistance." },
-  { q: "The child was very ______________, noticing every small detail. (observe)", a: ["observant"], hint: "observe + ___", exp: "<strong>observant</strong> (observe + -ant). Quick to notice things." },
-  { q: "He is heavily ______________ on coffee to wake up. (rely)", a: ["reliant"], hint: "rely → reli + ___", exp: "<strong>reliant</strong> (rely + -ant). Dependent on something." },
-  { q: "The ______________ weather made outdoor activities difficult. (vacate — but better: 'vacant' means empty, not weather. Let's use: 'The ______________ driver caused the accident.' (distract)", a: ["distract? -ant? 'distract' → 'distract' doesn't become -ant. 'Defiant' already used."] }
-];
-
-// Clean, corrected question bank (36 items, 9 per suffix)
-const QUESTIONS = [
+// QUESTION BANK - 36 questions (9 per suffix)
+const ALL_QUESTIONS = [
   // -al (9)
-  { q: "The painting's colours look incredibly ______________. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). From nature." },
-  { q: "Their meeting was completely ______________. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). By chance." },
+  { q: "The painting's colours look incredibly ______________. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). From nature, not artificial." },
+  { q: "Their meeting was completely ______________. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Happening by chance." },
   { q: "The ______________ habitat of the panda is disappearing. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). Original environment." },
   { q: "The damage was ______________, not on purpose. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Unintentional." },
   { q: "The festival has great ______________ significance. (culture)", a: ["cultural"], hint: "culture + ___", exp: "<strong>cultural</strong> (culture + -al). Related to customs and arts." },
@@ -449,7 +399,6 @@ const QUESTIONS = [
   { q: "He needs ______________ attention immediately. (medicine)", a: ["medical"], hint: "medicine + ___", exp: "<strong>medical</strong> (medicine + -al). Related to health." },
   { q: "They live in a ______________ house by the sea. (tradition)", a: ["traditional"], hint: "tradition + ___", exp: "<strong>traditional</strong> (tradition + -al). Following customs." },
   { q: "The company faced ______________ difficulties. (finance)", a: ["financial"], hint: "finance + ___", exp: "<strong>financial</strong> (finance + -al). Related to money." },
-  
   // -able (9)
   { q: "After boiling, the water became ______________. (drink)", a: ["drinkable"], hint: "drink + ___", exp: "<strong>drinkable</strong> (drink + -able). Safe to drink." },
   { q: "The software is highly ______________. (adapt)", a: ["adaptable"], hint: "adapt + ___", exp: "<strong>adaptable</strong> (adapt + -able). Easy to change." },
@@ -460,7 +409,6 @@ const QUESTIONS = [
   { q: "Her anger was completely ______________. (understand)", a: ["understandable"], hint: "understand + ___", exp: "<strong>understandable</strong> (understand + -able). Easy to comprehend." },
   { q: "Is this file ______________ on your computer? (view)", a: ["viewable"], hint: "view + ___", exp: "<strong>viewable</strong> (view + -able). Can be seen." },
   { q: "The damage is easily ______________. (repair)", a: ["repairable"], hint: "repair + ___", exp: "<strong>repairable</strong> (repair + -able). Can be fixed." },
-  
   // -ive (9)
   { q: "The professor gave a very ______________ lecture. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Convincing." },
   { q: "She's very ______________ in meetings. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Confident." },
@@ -471,23 +419,19 @@ const QUESTIONS = [
   { q: "His ______________ remarks shocked everyone. (provoke)", a: ["provocative"], hint: "provoke + ___", exp: "<strong>provocative</strong> (provoke + -ive). Intended to provoke." },
   { q: "She gave a very ______________ performance. (impress)", a: ["impressive"], hint: "impress + ___", exp: "<strong>impressive</strong> (impress + -ive). Awe-inspiring." },
   { q: "The ______________ results exceeded expectations. (produce)", a: ["productive"], hint: "produce + ___", exp: "<strong>productive</strong> (produce + -ive). Achieving results." },
-  
   // -ant (9)
   { q: "Lions are the ______________ predators. (dominate)", a: ["dominant"], hint: "dominate + ___", exp: "<strong>dominant</strong> (dominate + -ant). Most powerful." },
   { q: "The ______________ flowers filled the air with scent. (fragrance)", a: ["fragrant"], hint: "fragrance + ___", exp: "<strong>fragrant</strong> (fragr- + -ant). Sweet-smelling." },
   { q: "She remained ______________ despite the pressure. (defy)", a: ["defiant"], hint: "defy → defi + ___", exp: "<strong>defiant</strong> (defy + -ant). Resistant." },
   { q: "The ______________ child noticed everything. (observe)", a: ["observant"], hint: "observe + ___", exp: "<strong>observant</strong> (observe + -ant). Notices details." },
   { q: "He is heavily ______________ on caffeine. (rely)", a: ["reliant"], hint: "rely → reli + ___", exp: "<strong>reliant</strong> (rely + -ant). Dependent." },
-  { q: "The ______________ applicant got the job. (apply)", a: ["applicant"], hint: "apply → applic + ___", exp: "<strong>applicant</strong> (apply + -ant) — Note: this is a noun, but common in suffix exercises." },
-  { q: "The ______________ baby kept crying all night. (rest)", a: ["restless", "restant? not standard. Let's use: 'The ______________ tenant refused to leave.' (resist)", a: ["resistant"], hint: "resist + ___", exp: "<strong>resistant</strong> (resist + -ant). Opposing." },
-  { q: "The ______________ bird sang at dawn. (sing) — not correct. Use: 'The ______________ chemical repels insects.' (repel)", a: ["repellent"], hint: "repel + ___", exp: "<strong>repellent</strong> (repel + -ent/-ant spelling). Drives away." },
-  { q: "His ______________ attitude helped him succeed. (persist)", a: ["persistent"], hint: "persist + ___", exp: "<strong>persistent</strong> (persist + -ent). Determined." }
+  { q: "The ______________ chemical repels insects. (repel)", a: ["repellent"], hint: "repel + ___", exp: "<strong>repellent</strong> (repel + -ent). Drives away." },
+  { q: "His ______________ attitude helped him succeed. (persist)", a: ["persistent"], hint: "persist + ___", exp: "<strong>persistent</strong> (persist + -ent). Determined." },
+  { q: "The ______________ tenant refused to leave. (resist)", a: ["resistant"], hint: "resist + ___", exp: "<strong>resistant</strong> (resist + -ant). Opposing." },
+  { q: "The two sisters have ______________ personalities. (differ)", a: ["different"], hint: "differ + ___", exp: "<strong>different</strong> (differ + -ent). Not the same." }
 ];
 
-// Use the clean array
-const ALL_QUESTIONS = QUESTIONS;
-
-// State variables
+// State
 let studentName = '';
 let questions = [];
 let current = 0;
@@ -575,7 +519,6 @@ function loadQuestion() {
   document.getElementById('q-number').textContent = `Question ${current + 1}`;
   document.getElementById('progress-label').textContent = `${current + 1} / 10`;
   
-  // Highlight the base word in brackets
   let sentence = q.q;
   const baseMatch = sentence.match(/\(([^)]+)\)/);
   if (baseMatch) {
@@ -584,7 +527,7 @@ function loadQuestion() {
   }
   const rendered = sentence.replace('________', '<span class="blank">___________</span>');
   document.getElementById('q-text').innerHTML = rendered;
-  document.getElementById('q-hint').textContent = `Suffix: ${q.hint}`;
+  document.getElementById('q-hint').textContent = `Add suffix: ${q.hint}`;
   
   const inp = document.getElementById('answer-input');
   inp.value = '';
@@ -656,7 +599,7 @@ function skipQuestion() {
   document.getElementById('check-btn').disabled = true;
   const fb = document.getElementById('feedback');
   fb.className = 'feedback-box bad show';
-  fb.innerHTML = `Skipped. The correct answer was: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
+  fb.innerHTML = `⏭ Skipped. The correct answer was: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
   answerLog.push({ q: q.q, typed: '(skipped)', correct: correctDisplay, result: 'skipped' });
   updateProgressBar();
   document.getElementById('next-btn').classList.remove('hidden');
