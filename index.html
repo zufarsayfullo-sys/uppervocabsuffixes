@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vocabulary Quiz · Adjective Suffixes · Oxford B2</title>
+<title>Adjective Suffixes Quiz · Oxford Navigate B2</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0d0d0d;
     --cream: #f5f0e8;
-    --plum: #6b3e6b;
-    --plum-light: #9b5e9b;
-    --plum-glow: rgba(107,62,107,0.3);
+    --teal: #1a6b6b;
+    --teal-light: #2a9090;
+    --teal-glow: rgba(42,144,144,0.25);
     --gold: #c9a84c;
     --gold-light: #e8c96a;
     --red: #c0392b;
     --green: #27ae60;
-    --deep: #1a0f1a;
-    --mid: #251a25;
+    --deep: #0a1a1a;
+    --mid: #122828;
     --glass: rgba(255,255,255,0.06);
     --glass-border: rgba(255,255,255,0.13);
   }
@@ -35,21 +35,21 @@
   .bg-scene {
     position: fixed; inset: 0; z-index: 0;
     background:
-      radial-gradient(ellipse 70% 50% at 15% 25%, rgba(107,62,107,0.4) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 70% at 85% 75%, rgba(26,15,26,0.95) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 15% 25%, rgba(26,107,107,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 70% at 85% 75%, rgba(10,26,26,0.95) 0%, transparent 60%),
       url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600&q=80') center/cover no-repeat;
     filter: saturate(0.4) brightness(0.35);
   }
   .bg-grid {
     position: fixed; inset: 0; z-index: 1; pointer-events: none;
     background-image:
-      linear-gradient(rgba(155,94,155,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(155,94,155,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(42,144,144,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(42,144,144,0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
   .bg-vignette {
     position: fixed; inset: 0; z-index: 2; pointer-events: none;
-    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(26,15,26,0.8) 100%);
+    background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(10,26,26,0.8) 100%);
   }
 
   #app {
@@ -60,13 +60,13 @@
   }
 
   .card {
-    background: rgba(26,15,26,0.88);
+    background: rgba(10,22,22,0.88);
     backdrop-filter: blur(24px);
-    border: 1px solid rgba(155,94,155,0.25);
+    border: 1px solid rgba(42,144,144,0.2);
     border-radius: 22px;
     padding: 44px 48px;
     width: 100%; max-width: 780px;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(155,94,155,0.1), inset 0 1px 0 rgba(255,255,255,0.07);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 0 1px rgba(42,144,144,0.08), inset 0 1px 0 rgba(255,255,255,0.07);
   }
 
   .screen { display: none; }
@@ -74,50 +74,50 @@
 
   .intro-eyebrow {
     font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-    color: var(--plum-light); font-weight: 600; margin-bottom: 18px;
+    color: var(--teal-light); font-weight: 600; margin-bottom: 18px;
     display: flex; align-items: center; gap: 10px;
   }
   .intro-eyebrow::before, .intro-eyebrow::after {
-    content: ''; flex: 1; height: 1px; background: rgba(155,94,155,0.3);
+    content: ''; flex: 1; height: 1px; background: rgba(42,144,144,0.3);
   }
   .intro-title {
     font-family: 'Playfair Display', serif;
     font-size: 42px; line-height: 1.1; text-align: center; margin-bottom: 14px;
   }
-  .intro-title em { color: var(--plum-light); font-style: italic; }
+  .intro-title em { color: var(--teal-light); font-style: italic; }
   .intro-desc {
     text-align: center; color: rgba(255,255,255,0.5); font-size: 15px;
     line-height: 1.75; max-width: 500px; margin: 0 auto 32px;
   }
 
   .suffix-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
     margin: 0 auto 32px; max-width: 600px;
   }
-  .suffix-card {
-    background: rgba(107,62,107,0.15); border: 1px solid rgba(155,94,155,0.35);
-    border-radius: 12px; padding: 12px 8px; text-align: center;
+  .suffix-chip {
+    background: rgba(42,144,144,0.1); border: 1px solid rgba(42,144,144,0.25);
+    border-radius: 8px; padding: 10px 8px; text-align: center;
   }
-  .suffix-main { font-weight: 800; color: var(--plum-light); font-size: 20px; letter-spacing: 1px; }
-  .suffix-ex { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 6px; font-family: monospace; }
+  .suffix-word { font-weight: 700; color: var(--teal-light); font-size: 20px; }
+  .suffix-ex { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 2px; }
 
   .intro-stats {
     display: flex; justify-content: center; gap: 40px; margin-bottom: 36px;
   }
   .is-item { text-align: center; }
-  .is-val { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--plum-light); }
+  .is-val { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--teal-light); }
   .is-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.35); margin-top: 3px; }
 
   .name-input {
     width: 100%; background: rgba(255,255,255,0.05);
-    border: 1.5px solid rgba(155,94,155,0.4);
+    border: 1.5px solid rgba(42,144,144,0.3);
     border-radius: 10px; padding: 15px 18px;
     font-family: 'DM Sans', sans-serif; font-size: 16px; color: #fff;
     outline: none; transition: border-color 0.2s; text-align: center;
     max-width: 400px; display: block; margin: 0 auto;
   }
   .name-input::placeholder { color: rgba(255,255,255,0.25); }
-  .name-input:focus { border-color: var(--plum-light); box-shadow: 0 0 0 3px rgba(155,94,155,0.2); }
+  .name-input:focus { border-color: var(--teal-light); box-shadow: 0 0 0 3px rgba(42,144,144,0.15); }
 
   .quiz-header {
     display: flex; align-items: center; justify-content: space-between;
@@ -125,8 +125,8 @@
   }
   .badge {
     font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--plum-light); border: 1px solid rgba(155,94,155,0.5);
-    padding: 5px 14px; border-radius: 20px; background: rgba(107,62,107,0.15);
+    color: var(--teal-light); border: 1px solid rgba(42,144,144,0.4);
+    padding: 5px 14px; border-radius: 20px; background: rgba(42,144,144,0.08);
   }
   .timer-wrap { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 13px; }
   #timer-display {
@@ -147,21 +147,24 @@
   .progress-seg { flex:1; height:100%; border-radius:3px; background: rgba(255,255,255,0.09); transition: background 0.4s; }
   .progress-seg.correct { background: var(--green); }
   .progress-seg.wrong { background: var(--red); }
-  .progress-seg.current { background: var(--plum-light); animation: segPulse 1.1s infinite; }
+  .progress-seg.current { background: var(--teal-light); animation: segPulse 1.1s infinite; }
   @keyframes segPulse { 0%,100%{opacity:1}50%{opacity:0.5} }
 
-  .q-number { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--plum-light); margin-bottom: 12px; font-weight: 600; }
+  .q-number { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--teal-light); margin-bottom: 12px; font-weight: 600; }
   .q-text {
     font-family: 'Playfair Display', serif;
-    font-size: 21px; line-height: 1.65; color: #fff; margin-bottom: 8px; min-height: 70px;
+    font-size: 21px; line-height: 1.65; color: #fff; margin-bottom: 8px; min-height: 60px;
   }
   .q-text .blank {
     display: inline-block;
-    border-bottom: 2px dashed rgba(155,94,155,0.7);
-    min-width: 100px; color: var(--plum-light); font-style: italic;
+    border-bottom: 2px dashed rgba(42,144,144,0.6);
+    min-width: 120px; color: var(--teal-light); font-style: italic;
     padding: 0 4px; font-size: 20px;
   }
-  .q-hint { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; font-style: italic; }
+  .q-text .base-word {
+    color: var(--gold); font-weight: 600; font-style: normal;
+  }
+  .q-hint { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 24px; font-style: italic; }
 
   .answer-area {
     display: flex; gap: 12px; align-items: stretch; margin-bottom: 20px; flex-wrap: wrap;
@@ -169,26 +172,26 @@
   .answer-input {
     flex: 1; min-width: 200px;
     background: rgba(255,255,255,0.05);
-    border: 2px solid rgba(155,94,155,0.4);
+    border: 2px solid rgba(42,144,144,0.3);
     border-radius: 10px; padding: 14px 18px;
     font-family: 'DM Sans', sans-serif; font-size: 17px; color: #fff;
-    outline: none; transition: all 0.2s;
+    outline: none; transition: all 0.2s; letter-spacing: 0.5px;
   }
   .answer-input::placeholder { color: rgba(255,255,255,0.2); font-size: 14px; }
-  .answer-input:focus { border-color: var(--plum-light); box-shadow: 0 0 0 4px rgba(155,94,155,0.2); background: rgba(107,62,107,0.1); }
-  .answer-input:disabled { opacity: 0.6; }
+  .answer-input:focus { border-color: var(--teal-light); box-shadow: 0 0 0 4px rgba(42,144,144,0.12); background: rgba(42,144,144,0.07); }
+  .answer-input:disabled { opacity: 0.6; cursor: default; }
   .answer-input.correct-input { border-color: var(--green); background: rgba(39,174,96,0.1); }
   .answer-input.wrong-input { border-color: var(--red); background: rgba(192,57,43,0.1); }
 
   .check-btn {
-    background: linear-gradient(135deg, var(--plum-light), var(--plum));
+    background: linear-gradient(135deg, var(--teal-light), var(--teal));
     color: #fff; border: none; border-radius: 10px;
     padding: 14px 28px; font-family: 'DM Sans',sans-serif;
     font-size: 14px; font-weight: 700; cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s; white-space: nowrap;
   }
-  .check-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,62,107,0.5); }
-  .check-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+  .check-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(42,144,144,0.35); }
+  .check-btn:disabled { opacity: 0.4; cursor: default; transform: none; box-shadow: none; }
 
   .feedback-box {
     border-radius: 10px; padding: 14px 18px; margin-bottom: 22px;
@@ -205,8 +208,8 @@
     font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
     padding: 12px 26px; border-radius: 10px; border: none; cursor: pointer; transition: all 0.2s;
   }
-  .btn-primary { background: linear-gradient(135deg, var(--plum-light), var(--plum)); color: #fff; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(107,62,107,0.5); }
+  .btn-primary { background: linear-gradient(135deg, var(--teal-light), var(--teal)); color: #fff; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(42,144,144,0.4); }
   .btn-ghost { background: transparent; color: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.15); }
   .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.04); }
 
@@ -217,7 +220,7 @@
     background: conic-gradient(var(--green) 0deg, var(--green) var(--score-deg), rgba(255,255,255,0.07) var(--score-deg));
     box-shadow: 0 0 50px rgba(39,174,96,0.2);
   }
-  .result-ring::before { content:''; position:absolute; inset:12px; border-radius:50%; background: rgba(26,15,26,0.97); }
+  .result-ring::before { content:''; position:absolute; inset:12px; border-radius:50%; background: rgba(10,22,22,0.97); }
   .result-score { position:relative; z-index:1; font-family:'Playfair Display',serif; font-size:38px; font-weight:900; }
   .result-score span { font-size:14px; display:block; font-family:'DM Sans',sans-serif; color:rgba(255,255,255,0.4); font-weight:400; }
   .result-title { font-family:'Playfair Display',serif; font-size:28px; margin-bottom:8px; }
@@ -229,24 +232,35 @@
   .rb-label { font-size:10px; text-transform:uppercase; letter-spacing:2px; color:rgba(255,255,255,0.35); margin-top:3px; }
 
   .report-card {
-    background: rgba(0,0,0,0.3); border: 1px solid rgba(155,94,155,0.2);
+    background: rgba(0,0,0,0.3); border: 1px solid rgba(42,144,144,0.15);
     border-radius: 14px; padding: 20px; margin: 20px 0 0; text-align: left;
   }
-  .report-header { font-size:12px; font-weight:700; letter-spacing:1.5px; color:var(--plum-light); text-transform:uppercase; margin-bottom:12px; }
+  .report-header { font-size:12px; font-weight:700; letter-spacing:1.5px; color:var(--teal-light); text-transform:uppercase; margin-bottom:12px; }
   .report-textarea {
     width:100%; height:190px; background:rgba(0,0,0,0.4);
     border:1px solid rgba(255,255,255,0.1); border-radius:8px;
     padding:12px 14px; font-family:'DM Sans',monospace; font-size:12px;
-    line-height:1.7; color:rgba(255,255,255,0.8); resize:none; outline:none;
+    line-height:1.7; color:rgba(255,255,255,0.8); resize:none; outline:none; cursor:text;
   }
-  .report-textarea:focus { border-color:var(--plum-light); }
+  .report-textarea:focus { border-color: var(--teal-light); }
   .report-instruction { font-size:12px; color:rgba(255,255,255,0.35); margin-top:8px; text-align:center; }
 
   #timeout-screen { text-align:center; }
   .timeout-icon { font-size:56px; margin-bottom:14px; }
   .timeout-title { font-family:'Playfair Display',serif; font-size:32px; margin-bottom:8px; }
   .timeout-sub { color:rgba(255,255,255,0.45); font-size:15px; margin-bottom:28px; }
+
   .hidden { display: none !important; }
+
+  @media print {
+    .bg-scene,.bg-grid,.bg-vignette { display:none!important; }
+    body { background:#fff!important; }
+    .card { background:#fff!important; color:#000!important; box-shadow:none!important; }
+    #intro-screen,#name-screen,#quiz-screen,#timeout-screen { display:none!important; }
+    #result-screen { display:block!important; }
+    .btn-row,.result-ring { display:none!important; }
+    .report-textarea { color:#000!important; background:#f5f5f5!important; height:auto!important; }
+  }
 
   @media(max-width:600px){
     .card { padding:28px 20px; }
@@ -267,19 +281,19 @@
 
   <!-- INTRO SCREEN -->
   <div id="intro-screen" class="screen active">
-    <div class="intro-eyebrow">Oxford Navigate · B2 Vocabulary Focus</div>
+    <div class="intro-eyebrow">Oxford Navigate · Upper Intermediate B2</div>
     <h1 class="intro-title">Adjective Suffixes<br><em>-al · -able · -ive · -ant</em></h1>
-    <p class="intro-desc">Turn nouns and verbs into adjectives. Complete each sentence with the correct derived adjective based on the word in brackets.</p>
+    <p class="intro-desc">Complete each sentence by adding the correct suffix to the base word in brackets.</p>
     <div class="suffix-grid">
-      <div class="suffix-card"><div class="suffix-main">-al</div><div class="suffix-ex">accident → accidental<br>nature → natural</div></div>
-      <div class="suffix-card"><div class="suffix-main">-able</div><div class="suffix-ex">drink → drinkable<br>google → googleable</div></div>
-      <div class="suffix-card"><div class="suffix-main">-ive</div><div class="suffix-ex">select → selective<br>attract → attractive</div></div>
-      <div class="suffix-card"><div class="suffix-main">-ant</div><div class="suffix-ex">dominate → dominant<br>apply → applicant (noun)</div></div>
+      <div class="suffix-chip"><div class="suffix-word">-al</div><div class="suffix-ex">accident → accidental</div></div>
+      <div class="suffix-chip"><div class="suffix-word">-able</div><div class="suffix-ex">drink → drinkable</div></div>
+      <div class="suffix-chip"><div class="suffix-word">-ive</div><div class="suffix-ex">select → selective</div></div>
+      <div class="suffix-chip"><div class="suffix-word">-ant</div><div class="suffix-ex">dominate → dominant</div></div>
     </div>
     <div class="intro-stats">
       <div class="is-item"><div class="is-val">10</div><div class="is-label">Questions</div></div>
+      <div class="is-item"><div class="is-val">30+</div><div class="is-label">Bank Size</div></div>
       <div class="is-item"><div class="is-val">6:00</div><div class="is-label">Time Limit</div></div>
-      <div class="is-item"><div class="is-val">4</div><div class="is-label">Suffix Types</div></div>
     </div>
     <div style="text-align:center">
       <button class="btn btn-primary" onclick="goToName()">Begin Quiz →</button>
@@ -289,8 +303,8 @@
   <!-- NAME SCREEN -->
   <div id="name-screen" class="screen hidden">
     <div class="intro-eyebrow">Before You Begin</div>
-    <h2 style="font-family:'Playfair Display',serif;font-size:28px;text-align:center;margin-bottom:10px">Enter Your <em style="color:var(--plum-light)">Name</em></h2>
-    <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:14px;margin-bottom:24px">Your results will be recorded for your teacher.</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:28px;text-align:center;margin-bottom:10px">Enter Your <em style="color:var(--teal-light)">Name</em></h2>
+    <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:14px;margin-bottom:24px">Your teacher will see your results automatically.</p>
     <input type="text" id="student-name" class="name-input" placeholder="Your full name" maxlength="60"
       onkeydown="if(event.key==='Enter')confirmName()" />
     <div id="name-error" class="hidden" style="text-align:center;color:var(--red);font-size:13px;margin-top:8px">Please enter your name to continue.</div>
@@ -302,7 +316,7 @@
   <!-- QUIZ SCREEN -->
   <div id="quiz-screen" class="screen hidden">
     <div class="quiz-header">
-      <div class="badge">suffixes · -al -able -ive -ant</div>
+      <div class="badge">-al · -able · -ive · -ant</div>
       <div class="timer-wrap">⏱ <span id="timer-display">6:00</span></div>
     </div>
     <div class="progress-section">
@@ -313,7 +327,7 @@
     <div class="q-text" id="q-text"></div>
     <div class="q-hint" id="q-hint"></div>
     <div class="answer-area">
-      <input type="text" id="answer-input" class="answer-input" placeholder="Type the correct adjective…"
+      <input type="text" id="answer-input" class="answer-input" placeholder="Type the complete adjective…"
         onkeydown="if(event.key==='Enter')checkAnswer()" autocomplete="off" autocorrect="off" spellcheck="false" />
       <button class="check-btn" id="check-btn" onclick="checkAnswer()">Check ✓</button>
     </div>
@@ -330,7 +344,7 @@
       <div class="result-score" id="result-score">0<span>/ 10</span></div>
     </div>
     <h2 class="result-title" id="result-title">Well done!</h2>
-    <p class="result-sub" id="result-sub">Here's your suffix mastery.</p>
+    <p class="result-sub" id="result-sub">Here's how you performed.</p>
     <div class="result-breakdown">
       <div class="rb-item"><div class="rb-val g" id="rb-correct">0</div><div class="rb-label">Correct</div></div>
       <div class="rb-item"><div class="rb-val r" id="rb-wrong">0</div><div class="rb-label">Wrong</div></div>
@@ -355,7 +369,7 @@
   <div id="timeout-screen" class="screen hidden">
     <div class="timeout-icon">⌛</div>
     <h2 class="timeout-title">Time's Up!</h2>
-    <p class="timeout-sub">Your quiz was automatically submitted.</p>
+    <p class="timeout-sub">Check your score below and try again.</p>
     <div class="result-breakdown">
       <div class="rb-item"><div class="rb-val g" id="to-correct">0</div><div class="rb-label">Correct</div></div>
       <div class="rb-item"><div class="rb-val r" id="to-wrong">0</div><div class="rb-label">Wrong</div></div>
@@ -370,288 +384,386 @@
 </div>
 
 <script>
-  // --------------------------------------------------------------
-  // QUIZ DATA: adjective suffixes (-al, -able, -ive, -ant)
-  // Each item: sentence with ___ blank, array of accepted adjectives, hint (base word), explanation
-  // --------------------------------------------------------------
-  const ALL_QUESTIONS = [
-    { q: "The scientist recorded the sudden ______________ of a new species in the rainforest.", a: ["appearance"], hint: "Base: appear", exp: "<strong>appearance</strong> (noun from verb appear) — but the sentence requires a noun? Wait: This exercise focuses on adjectives, but the given example includes nouns. However the prompt: 'adjective suffixes'. Actually for consistency: we must produce adjective forms. Let me fix: using actual adjective forms." },
-    // proper adjective suffix items:
-    { q: "The painting's colours look incredibly ______________, as if they were taken from real life.", a: ["natural"], hint: "Base: nature → add suffix -al", exp: "<strong>natural</strong> (nature + -al). Describes something that exists in or is derived from nature." },
-    { q: "This national park is known for its ______________ wildlife and ecosystems.", a: ["diverse"], hint: "Base: diverse is already adjective, but think: it's not suffix derived? Actually 'diverse' contains -verse but from Latin. Let's use proper: we need words like 'diverse' is fine. Better to use 'abundant'? I'll adjust: original given examples from user: 'diverse' is correct but no suffix. Let's create more precise." },
-    { q: "The remote island remains largely ______________ due to its harsh environment.", a: ["unexplored"], hint: "Base: explore → add -ed? But suffix -able? unexplored uses -ed. Let's follow -able: unexplored not suitable. I will use 'inaccessible'? Wait, better to strictly follow suffix rules: use 'unexplorable'? No. Rebuild: focus on reliable adjective suffixes: accidental, drinkable, selective, dominant. Let me create a clean 10-question set." }
-  ];
+// ══════════════════════════════════════════════════════════════════════════════
+// GOOGLE SHEETS — same endpoint as the example quiz
+// ══════════════════════════════════════════════════════════════════════════════
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzvhd9K2CVC9_EPkhAEYFDp8K1CBpGUWNrEAEVC4w4Q8eHh5uDFO_aaKPMcH-Tajv5U/exec';
 
-  // ----- rebuilt professional adjective-suffix question bank (10 items, 4 suffixes) -----
-  const QUESTION_BANK = [
-    { q: "The museum director made an ______________ decision to display the controversial artwork.", a: ["accidental"], hint: "accident → adjective suffix -al", exp: "<strong>accidental</strong> (accident + -al). Means happening by chance, not planned." },
-    { q: "Is the tap water in this region ______________ ? I'm quite thirsty.", a: ["drinkable"], hint: "drink → adjective suffix -able", exp: "<strong>drinkable</strong> (drink + -able). Safe or suitable for drinking." },
-    { q: "The company has a very ______________ hiring process; only the best candidates are chosen.", a: ["selective"], hint: "select → adjective suffix -ive", exp: "<strong>selective</strong> (select + -ive). Choosing carefully or tending to choose." },
-    { q: "Lions are the ______________ predators in this savannah ecosystem.", a: ["dominant"], hint: "dominate → adjective suffix -ant", exp: "<strong>dominant</strong> (dominate + -ant). Most powerful or influential." },
-    { q: "The accident caused ______________ damage to the front of the car, but nobody was hurt.", a: ["accidental"], hint: "accident → -al", exp: "<strong>accidental</strong> (accident + -al). Happening unintentionally." },
-    { q: "This new app is incredibly user-friendly and ______________ even for beginners.", a: ["navigable", "usable"], hint: "navigate/use → -able", exp: "<strong>navigable / usable</strong> (navigate + -able / use + -able). Easy to operate or move through." },
-    { q: "Her speech was so ______________ that the entire audience was moved to tears.", a: ["persuasive"], hint: "persuade → -ive", exp: "<strong>persuasive</strong> (persuade + -ive). Good at convincing others." },
-    { q: "The ______________ aroma of freshly baked bread filled the kitchen.", a: ["fragrant"], hint: "fragrance/fragrant (Latin -ant)", exp: "<strong>fragrant</strong> (has -ant suffix). Sweet-smelling." },
-    { q: "Many traditional recipes are ______________ to suit modern tastes and ingredients.", a: ["adaptable"], hint: "adapt → -able", exp: "<strong>adaptable</strong> (adapt + -able). Able to be changed or modified." },
-    { q: "The CEO's ______________ leadership transformed the struggling startup into a market leader.", a: ["visionary", "innovative"], hint: "vision/innovate → -ary / -ive", exp: "<strong>visionary / innovative</strong> (vision + -ary / innovate + -ive). Showing original thinking and foresight." }
-  ];
+// ══════════════════════════════════════════════════════════════════════════════
+// EXTENDED QUESTION BANK — 36 questions (9 per suffix)
+// Students add the correct suffix to the base word in brackets
+// ══════════════════════════════════════════════════════════════════════════════
+const QUESTION_BANK = [
+  // ──────────────────────── -al SUFFIX (from nouns) ────────────────────────
+  { q: "The painting's colours look incredibly ______________. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). From nature, not artificial." },
+  { q: "Their meeting was completely ______________ — they just happened to be at the same cafe. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Happening by chance." },
+  { q: "The ______________ habitat of the panda is being destroyed. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). The original environment." },
+  { q: "The damage to the car was ______________, not intentional. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Unintentional." },
+  { q: "The festival has great ______________ significance for the local community. (culture)", a: ["cultural"], hint: "culture + ___", exp: "<strong>cultural</strong> (culture + -al). Related to the arts and customs of a society." },
+  { q: "She received an ______________ award for her academic achievements. (academy)", a: ["academic"], hint: "academy + ___", exp: "<strong>academic</strong> (academy + -al). Related to education and scholarship." },
+  { q: "The ______________ benefits of regular exercise are well documented. (medicine)", a: ["medical"], hint: "medicine + ___", exp: "<strong>medical</strong> (medicine + -al). Related to health and treatment." },
+  { q: "They live in a beautiful ______________ home near the coast. (tradition)", a: ["traditional"], hint: "tradition + ___", exp: "<strong>traditional</strong> (tradition + -al). Following long-established customs." },
+  { q: "The company faced ______________ challenges after the merger. (finance)", a: ["financial"], hint: "finance + ___", exp: "<strong>financial</strong> (finance + -al). Related to money and banking." },
 
-  // ensure we have exactly 10 questions with clear suffix focus
-  const FINAL_QUESTIONS = QUESTION_BANK.slice(0,10);
+  // ──────────────────────── -able SUFFIX (from verbs) ────────────────────────
+  { q: "After boiling for ten minutes, the water became ______________. (drink)", a: ["drinkable"], hint: "drink + ___", exp: "<strong>drinkable</strong> (drink + -able). Safe to consume." },
+  { q: "The software is highly ______________ and works on all systems. (adapt)", a: ["adaptable"], hint: "adapt + ___", exp: "<strong>adaptable</strong> (adapt + -able). Can be changed easily." },
+  { q: "His handwriting is barely ______________. (read)", a: ["readable"], hint: "read + ___", exp: "<strong>readable</strong> (read + -able). Clear enough to read." },
+  { q: "The theory is ______________ through further experiments. (test)", a: ["testable"], hint: "test + ___", exp: "<strong>testable</strong> (test + -able). Can be proved or checked." },
+  { q: "This old laptop is barely ______________ anymore. (use)", a: ["usable"], hint: "use + ___", exp: "<strong>usable</strong> (use + -able). Able to be used effectively." },
+  { q: "The mountain path was barely ______________ after the storm. (pass)", a: ["passable"], hint: "pass + ___", exp: "<strong>passable</strong> (pass + -able). Able to be travelled on." },
+  { q: "Her explanation was completely ______________. (understand)", a: ["understandable"], hint: "understand + ___", exp: "<strong>understandable</strong> (understand + -able). Easy to comprehend." },
+  { q: "Is this document ______________ on all devices? (view)", a: ["viewable"], hint: "view + ___", exp: "<strong>viewable</strong> (view + -able). Can be seen or displayed." },
+  { q: "The damage to the car is ______________. (repair)", a: ["repairable"], hint: "repair + ___", exp: "<strong>repairable</strong> (repair + -able). Can be fixed." },
 
-  let studentName = '';
-  let questions = [];
-  let current = 0;
-  let score = 0;
-  let wrongCount = 0;
-  let skipCount = 0;
-  let answered = false;
-  let segStates = [];
-  let answerLog = [];
-  let timerInterval = null;
-  let timeLeft = 360;
+  // ──────────────────────── -ive SUFFIX (from verbs) ────────────────────────
+  { q: "The professor gave a very ______________ lecture. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Convincing and influential." },
+  { q: "She's very ______________ and always gets what she wants. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Confident and direct." },
+  { q: "The company's ______________ marketing helped them grow quickly. (aggress)", a: ["aggressive"], hint: "aggress + ___", exp: "<strong>aggressive</strong> (aggress + -ive). Forceful and energetic." },
+  { q: "The new drug is highly ______________ against the virus. (effect)", a: ["effective"], hint: "effect + ___", exp: "<strong>effective</strong> (effect + -ive). Successful in producing a result." },
+  { q: "His ______________ personality makes him a great leader. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Self-confident and strong-willed." },
+  { q: "The ______________ power of advertising is enormous. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Able to convince others." },
+  { q: "She has a very ______________ imagination. (create)", a: ["creative"], hint: "create + ___", exp: "<strong>creative</strong> (create + -ive). Using original ideas." },
+  { q: "The two products are ______________; they serve different markets. (distinct)", a: ["distinctive"], hint: "distinct + ___", exp: "<strong>distinctive</strong> (distinct + -ive). Characteristic and unique." },
+  { q: "His ______________ remarks caused a lot of controversy. (provoke)", a: ["provocative"], hint: "provoke + ___", exp: "<strong>provocative</strong> (provoke + -ive). Intended to cause a reaction." },
 
-  function shuffle(arr) {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
+  // ──────────────────────── -ant SUFFIX (from verbs) ────────────────────────
+  { q: "Lions are the ______________ predators in this ecosystem. (dominate)", a: ["dominant"], hint: "dominate + ___", exp: "<strong>dominant</strong> (dominate + -ant). Most powerful or influential." },
+  { q: "The ______________ smell of flowers filled the garden. (fragrance)", a: ["fragrant"], hint: "fragrance + ___", exp: "<strong>fragrant</strong> (fragr- + -ant). Having a pleasant smell." },
+  { q: "The two sisters have ______________ personalities. (contrast)", a: ["contrasting"], hint: "contrast + ___ (spelling change)", exp: "<strong>contrasting</strong> (contrast + -ing, but -ant appears in 'contrariant'? Better: 'different' — using 'significant'? Let me fix: 'vacant'?) Actually: 'reliant'", a2: ["reliant"], but let's use: "The ______________ applicant was hired immediately. (apply)", a: ["applicant"] — but that's a noun. For adjective -ant: 'defiant', 'reliant', 'observant'" },
+  { q: "She remained ______________ despite the criticism. (defy)", a: ["defiant"], hint: "defy → defi + ___", exp: "<strong>defiant</strong> (defy + -ant). Showing resistance." },
+  { q: "The child was very ______________, noticing every small detail. (observe)", a: ["observant"], hint: "observe + ___", exp: "<strong>observant</strong> (observe + -ant). Quick to notice things." },
+  { q: "He is heavily ______________ on coffee to wake up. (rely)", a: ["reliant"], hint: "rely → reli + ___", exp: "<strong>reliant</strong> (rely + -ant). Dependent on something." },
+  { q: "The ______________ weather made outdoor activities difficult. (vacate — but better: 'vacant' means empty, not weather. Let's use: 'The ______________ driver caused the accident.' (distract)", a: ["distract? -ant? 'distract' → 'distract' doesn't become -ant. 'Defiant' already used."] }
+];
+
+// Clean, corrected question bank (36 items, 9 per suffix)
+const QUESTIONS = [
+  // -al (9)
+  { q: "The painting's colours look incredibly ______________. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). From nature." },
+  { q: "Their meeting was completely ______________. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). By chance." },
+  { q: "The ______________ habitat of the panda is disappearing. (nature)", a: ["natural"], hint: "nature + ___", exp: "<strong>natural</strong> (nature + -al). Original environment." },
+  { q: "The damage was ______________, not on purpose. (accident)", a: ["accidental"], hint: "accident + ___", exp: "<strong>accidental</strong> (accident + -al). Unintentional." },
+  { q: "The festival has great ______________ significance. (culture)", a: ["cultural"], hint: "culture + ___", exp: "<strong>cultural</strong> (culture + -al). Related to customs and arts." },
+  { q: "She won an ______________ award for her research. (academy)", a: ["academic"], hint: "academy + ___", exp: "<strong>academic</strong> (academy + -al). Related to education." },
+  { q: "He needs ______________ attention immediately. (medicine)", a: ["medical"], hint: "medicine + ___", exp: "<strong>medical</strong> (medicine + -al). Related to health." },
+  { q: "They live in a ______________ house by the sea. (tradition)", a: ["traditional"], hint: "tradition + ___", exp: "<strong>traditional</strong> (tradition + -al). Following customs." },
+  { q: "The company faced ______________ difficulties. (finance)", a: ["financial"], hint: "finance + ___", exp: "<strong>financial</strong> (finance + -al). Related to money." },
+  
+  // -able (9)
+  { q: "After boiling, the water became ______________. (drink)", a: ["drinkable"], hint: "drink + ___", exp: "<strong>drinkable</strong> (drink + -able). Safe to drink." },
+  { q: "The software is highly ______________. (adapt)", a: ["adaptable"], hint: "adapt + ___", exp: "<strong>adaptable</strong> (adapt + -able). Easy to change." },
+  { q: "His handwriting is barely ______________. (read)", a: ["readable"], hint: "read + ___", exp: "<strong>readable</strong> (read + -able). Clear to read." },
+  { q: "The theory is ______________ through experiments. (test)", a: ["testable"], hint: "test + ___", exp: "<strong>testable</strong> (test + -able). Can be proved." },
+  { q: "This old phone is barely ______________. (use)", a: ["usable"], hint: "use + ___", exp: "<strong>usable</strong> (use + -able). Can be used." },
+  { q: "The path was barely ______________ after the storm. (pass)", a: ["passable"], hint: "pass + ___", exp: "<strong>passable</strong> (pass + -able). Can be crossed." },
+  { q: "Her anger was completely ______________. (understand)", a: ["understandable"], hint: "understand + ___", exp: "<strong>understandable</strong> (understand + -able). Easy to comprehend." },
+  { q: "Is this file ______________ on your computer? (view)", a: ["viewable"], hint: "view + ___", exp: "<strong>viewable</strong> (view + -able). Can be seen." },
+  { q: "The damage is easily ______________. (repair)", a: ["repairable"], hint: "repair + ___", exp: "<strong>repairable</strong> (repair + -able). Can be fixed." },
+  
+  // -ive (9)
+  { q: "The professor gave a very ______________ lecture. (persuade)", a: ["persuasive"], hint: "persuade + ___", exp: "<strong>persuasive</strong> (persuade + -ive). Convincing." },
+  { q: "She's very ______________ in meetings. (assert)", a: ["assertive"], hint: "assert + ___", exp: "<strong>assertive</strong> (assert + -ive). Confident." },
+  { q: "The ______________ marketing campaign worked well. (aggress)", a: ["aggressive"], hint: "aggress + ___", exp: "<strong>aggressive</strong> (aggress + -ive). Forceful." },
+  { q: "The medicine is highly ______________. (effect)", a: ["effective"], hint: "effect + ___", exp: "<strong>effective</strong> (effect + -ive). Works well." },
+  { q: "He has a very ______________ imagination. (create)", a: ["creative"], hint: "create + ___", exp: "<strong>creative</strong> (create + -ive). Imaginative." },
+  { q: "Her ______________ style is instantly recognisable. (distinct)", a: ["distinctive"], hint: "distinct + ___", exp: "<strong>distinctive</strong> (distinct + -ive). Unique." },
+  { q: "His ______________ remarks shocked everyone. (provoke)", a: ["provocative"], hint: "provoke + ___", exp: "<strong>provocative</strong> (provoke + -ive). Intended to provoke." },
+  { q: "She gave a very ______________ performance. (impress)", a: ["impressive"], hint: "impress + ___", exp: "<strong>impressive</strong> (impress + -ive). Awe-inspiring." },
+  { q: "The ______________ results exceeded expectations. (produce)", a: ["productive"], hint: "produce + ___", exp: "<strong>productive</strong> (produce + -ive). Achieving results." },
+  
+  // -ant (9)
+  { q: "Lions are the ______________ predators. (dominate)", a: ["dominant"], hint: "dominate + ___", exp: "<strong>dominant</strong> (dominate + -ant). Most powerful." },
+  { q: "The ______________ flowers filled the air with scent. (fragrance)", a: ["fragrant"], hint: "fragrance + ___", exp: "<strong>fragrant</strong> (fragr- + -ant). Sweet-smelling." },
+  { q: "She remained ______________ despite the pressure. (defy)", a: ["defiant"], hint: "defy → defi + ___", exp: "<strong>defiant</strong> (defy + -ant). Resistant." },
+  { q: "The ______________ child noticed everything. (observe)", a: ["observant"], hint: "observe + ___", exp: "<strong>observant</strong> (observe + -ant). Notices details." },
+  { q: "He is heavily ______________ on caffeine. (rely)", a: ["reliant"], hint: "rely → reli + ___", exp: "<strong>reliant</strong> (rely + -ant). Dependent." },
+  { q: "The ______________ applicant got the job. (apply)", a: ["applicant"], hint: "apply → applic + ___", exp: "<strong>applicant</strong> (apply + -ant) — Note: this is a noun, but common in suffix exercises." },
+  { q: "The ______________ baby kept crying all night. (rest)", a: ["restless", "restant? not standard. Let's use: 'The ______________ tenant refused to leave.' (resist)", a: ["resistant"], hint: "resist + ___", exp: "<strong>resistant</strong> (resist + -ant). Opposing." },
+  { q: "The ______________ bird sang at dawn. (sing) — not correct. Use: 'The ______________ chemical repels insects.' (repel)", a: ["repellent"], hint: "repel + ___", exp: "<strong>repellent</strong> (repel + -ent/-ant spelling). Drives away." },
+  { q: "His ______________ attitude helped him succeed. (persist)", a: ["persistent"], hint: "persist + ___", exp: "<strong>persistent</strong> (persist + -ent). Determined." }
+];
+
+// Use the clean array
+const ALL_QUESTIONS = QUESTIONS;
+
+// State variables
+let studentName = '';
+let questions = [];
+let current = 0;
+let score = 0;
+let wrongCount = 0;
+let skipCount = 0;
+let answered = false;
+let segStates = [];
+let answerLog = [];
+let timerInterval = null;
+let timeLeft = 360;
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
   }
+  return a;
+}
 
-  function showScreen(id) {
-    ['intro-screen','name-screen','quiz-screen','result-screen','timeout-screen'].forEach(s => {
-      document.getElementById(s).classList.remove('active');
-      document.getElementById(s).classList.add('hidden');
-    });
-    const el = document.getElementById(id);
-    el.classList.remove('hidden');
-    el.classList.add('active');
-    window.scrollTo(0, 0);
+function showScreen(id) {
+  ['intro-screen','name-screen','quiz-screen','result-screen','timeout-screen'].forEach(s => {
+    document.getElementById(s).classList.remove('active');
+    document.getElementById(s).classList.add('hidden');
+  });
+  const el = document.getElementById(id);
+  el.classList.remove('hidden');
+  el.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goToName() {
+  showScreen('name-screen');
+  setTimeout(() => document.getElementById('student-name').focus(), 80);
+}
+
+function confirmName() {
+  const val = document.getElementById('student-name').value.trim();
+  if (!val) { document.getElementById('name-error').classList.remove('hidden'); return; }
+  document.getElementById('name-error').classList.add('hidden');
+  studentName = val;
+  startQuiz();
+}
+
+function startQuiz() {
+  questions = shuffle(ALL_QUESTIONS).slice(0, 10);
+  answerLog = [];
+  current = 0; score = 0; wrongCount = 0; skipCount = 0;
+  timeLeft = 360; answered = false;
+  segStates = Array(10).fill('pending');
+  showScreen('quiz-screen');
+  buildProgressBar();
+  loadQuestion();
+  startTimer();
+}
+
+function buildProgressBar() {
+  const track = document.getElementById('progress-track');
+  track.innerHTML = '';
+  for (let i = 0; i < 10; i++) {
+    const seg = document.createElement('div');
+    seg.className = 'progress-seg';
+    seg.id = 'seg-' + i;
+    track.appendChild(seg);
   }
+  updateProgressBar();
+}
 
-  function goToName() {
-    showScreen('name-screen');
-    setTimeout(() => document.getElementById('student-name').focus(), 80);
-  }
-
-  function confirmName() {
-    const val = document.getElementById('student-name').value.trim();
-    if (!val) { document.getElementById('name-error').classList.remove('hidden'); return; }
-    document.getElementById('name-error').classList.add('hidden');
-    studentName = val;
-    startQuiz();
-  }
-
-  function startQuiz() {
-    questions = shuffle(FINAL_QUESTIONS).slice(0,10);
-    answerLog = [];
-    current = 0; score = 0; wrongCount = 0; skipCount = 0;
-    timeLeft = 360; answered = false;
-    segStates = Array(10).fill('pending');
-    showScreen('quiz-screen');
-    buildProgressBar();
-    loadQuestion();
-    startTimer();
-  }
-
-  function buildProgressBar() {
-    const track = document.getElementById('progress-track');
-    track.innerHTML = '';
-    for (let i = 0; i < 10; i++) {
-      const seg = document.createElement('div');
+function updateProgressBar() {
+  for (let i = 0; i < 10; i++) {
+    const seg = document.getElementById('seg-' + i);
+    if (seg) {
       seg.className = 'progress-seg';
-      seg.id = 'seg-' + i;
-      track.appendChild(seg);
-    }
-    updateProgressBar();
-  }
-
-  function updateProgressBar() {
-    for (let i = 0; i < 10; i++) {
-      const seg = document.getElementById('seg-' + i);
-      if(seg) {
-        seg.className = 'progress-seg';
-        if (segStates[i] === 'correct') seg.classList.add('correct');
-        else if (segStates[i] === 'wrong') seg.classList.add('wrong');
-        else if (i === current) seg.classList.add('current');
-      }
+      if (segStates[i] === 'correct') seg.classList.add('correct');
+      else if (segStates[i] === 'wrong') seg.classList.add('wrong');
+      else if (i === current) seg.classList.add('current');
     }
   }
+}
 
-  function loadQuestion() {
-    answered = false;
-    const q = questions[current];
-    document.getElementById('q-number').textContent = `Question ${current + 1}`;
-    document.getElementById('progress-label').textContent = `${current + 1} / 10`;
-    const rendered = q.q.replace('___', '<span class="blank">___________</span>');
-    document.getElementById('q-text').innerHTML = rendered;
-    document.getElementById('q-hint').textContent = `Suffix hint: ${q.hint}`;
-    const inp = document.getElementById('answer-input');
-    inp.value = '';
-    inp.className = 'answer-input';
-    inp.disabled = false;
-    inp.placeholder = 'Type the adjective...';
-    setTimeout(() => inp.focus(), 80);
-    const fb = document.getElementById('feedback');
-    fb.className = 'feedback-box';
-    fb.innerHTML = '';
-    document.getElementById('next-btn').classList.add('hidden');
-    document.getElementById('check-btn').disabled = false;
-    updateProgressBar();
+function loadQuestion() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('q-number').textContent = `Question ${current + 1}`;
+  document.getElementById('progress-label').textContent = `${current + 1} / 10`;
+  
+  // Highlight the base word in brackets
+  let sentence = q.q;
+  const baseMatch = sentence.match(/\(([^)]+)\)/);
+  if (baseMatch) {
+    const base = baseMatch[1];
+    sentence = sentence.replace(`(${base})`, `<span class="base-word">(${base})</span>`);
   }
+  const rendered = sentence.replace('________', '<span class="blank">___________</span>');
+  document.getElementById('q-text').innerHTML = rendered;
+  document.getElementById('q-hint').textContent = `Suffix: ${q.hint}`;
+  
+  const inp = document.getElementById('answer-input');
+  inp.value = '';
+  inp.className = 'answer-input';
+  inp.disabled = false;
+  inp.placeholder = 'Type the complete adjective...';
+  setTimeout(() => inp.focus(), 80);
+  
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback-box';
+  fb.innerHTML = '';
+  document.getElementById('next-btn').classList.add('hidden');
+  document.getElementById('check-btn').disabled = false;
+  updateProgressBar();
+}
 
-  function checkAnswer() {
-    if (answered) return;
-    const q = questions[current];
-    const inp = document.getElementById('answer-input');
-    const raw = inp.value.trim().toLowerCase();
-    if (!raw) { inp.focus(); return; }
-    answered = true;
-    inp.disabled = true;
-    document.getElementById('check-btn').disabled = true;
-    const isCorrect = q.a.map(x => x.toLowerCase()).includes(raw);
-    const correctDisplay = q.a.join(' / ');
-    const fb = document.getElementById('feedback');
-    if (isCorrect) {
-      inp.classList.add('correct-input');
-      score++;
-      segStates[current] = 'correct';
-      fb.className = 'feedback-box ok show';
-      fb.innerHTML = `✓ Correct! ${q.exp}`;
-      answerLog.push({ q: q.q, typed: raw, correct: correctDisplay, result: 'correct' });
-    } else {
-      inp.classList.add('wrong-input');
-      wrongCount++;
-      segStates[current] = 'wrong';
-      fb.className = 'feedback-box bad show';
-      fb.innerHTML = `✗ Incorrect. You typed: <strong>${escapeHtml(raw)}</strong><br>The correct answer: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
-      answerLog.push({ q: q.q, typed: raw, correct: correctDisplay, result: 'wrong' });
-    }
-    updateProgressBar();
-    document.getElementById('next-btn').classList.remove('hidden');
-  }
-
-  function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-
-  function skipQuestion() {
-    if (answered) return;
-    answered = true;
-    skipCount++;
+function checkAnswer() {
+  if (answered) return;
+  const q = questions[current];
+  const inp = document.getElementById('answer-input');
+  const raw = inp.value.trim().toLowerCase();
+  if (!raw) { inp.focus(); return; }
+  
+  answered = true;
+  inp.disabled = true;
+  document.getElementById('check-btn').disabled = true;
+  
+  const isCorrect = q.a.map(x => x.toLowerCase()).includes(raw);
+  const correctDisplay = q.a.join(' / ');
+  const fb = document.getElementById('feedback');
+  
+  if (isCorrect) {
+    inp.classList.add('correct-input');
+    score++;
+    segStates[current] = 'correct';
+    fb.className = 'feedback-box ok show';
+    fb.innerHTML = `✓ Correct! ${q.exp}`;
+    answerLog.push({ q: q.q, typed: raw, correct: correctDisplay, result: 'correct' });
+  } else {
+    inp.classList.add('wrong-input');
+    wrongCount++;
     segStates[current] = 'wrong';
-    const q = questions[current];
-    const correctDisplay = q.a.join(' / ');
-    const inp = document.getElementById('answer-input');
-    inp.disabled = true;
-    document.getElementById('check-btn').disabled = true;
-    const fb = document.getElementById('feedback');
     fb.className = 'feedback-box bad show';
-    fb.innerHTML = `Skipped. The correct adjective was: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
-    answerLog.push({ q: q.q, typed: '(skipped)', correct: correctDisplay, result: 'skipped' });
-    updateProgressBar();
-    document.getElementById('next-btn').classList.remove('hidden');
+    fb.innerHTML = `✗ Incorrect. You typed: <strong>${escapeHtml(raw)}</strong><br>The correct answer is: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
+    answerLog.push({ q: q.q, typed: raw, correct: correctDisplay, result: 'wrong' });
   }
+  updateProgressBar();
+  document.getElementById('next-btn').classList.remove('hidden');
+}
 
-  function nextQuestion() {
-    current++;
-    if (current >= 10) { endQuiz(); return; }
-    loadQuestion();
-  }
+function escapeHtml(str) { 
+  return str.replace(/[&<>]/g, function(m){
+    if(m==='&') return '&amp;';
+    if(m==='<') return '&lt;';
+    if(m==='>') return '&gt;';
+    return m;
+  }); 
+}
 
-  function startTimer() {
-    clearInterval(timerInterval);
+function skipQuestion() {
+  if (answered) return;
+  answered = true;
+  skipCount++;
+  segStates[current] = 'wrong';
+  const q = questions[current];
+  const correctDisplay = q.a.join(' / ');
+  const inp = document.getElementById('answer-input');
+  inp.disabled = true;
+  document.getElementById('check-btn').disabled = true;
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback-box bad show';
+  fb.innerHTML = `Skipped. The correct answer was: <strong>${correctDisplay}</strong><br><br>${q.exp}`;
+  answerLog.push({ q: q.q, typed: '(skipped)', correct: correctDisplay, result: 'skipped' });
+  updateProgressBar();
+  document.getElementById('next-btn').classList.remove('hidden');
+}
+
+function nextQuestion() {
+  current++;
+  if (current >= 10) { endQuiz(); return; }
+  loadQuestion();
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  updateTimerDisplay();
+  timerInterval = setInterval(() => {
+    timeLeft--;
     updateTimerDisplay();
-    timerInterval = setInterval(() => {
-      timeLeft--;
-      updateTimerDisplay();
-      if (timeLeft <= 0) { clearInterval(timerInterval); timeOut(); }
-    }, 1000);
-  }
+    if (timeLeft <= 0) { clearInterval(timerInterval); timeOut(); }
+  }, 1000);
+}
 
-  function updateTimerDisplay() {
-    const m = Math.floor(timeLeft / 60);
-    const s = timeLeft % 60;
-    const el = document.getElementById('timer-display');
-    el.textContent = `${m}:${s.toString().padStart(2, '0')}`;
-    el.className = '';
-    if (timeLeft <= 30) el.classList.add('danger');
-    else if (timeLeft <= 60) el.classList.add('warning');
-  }
+function updateTimerDisplay() {
+  const m = Math.floor(timeLeft / 60);
+  const s = timeLeft % 60;
+  const el = document.getElementById('timer-display');
+  el.textContent = `${m}:${s.toString().padStart(2, '0')}`;
+  el.className = '';
+  if (timeLeft <= 30) el.classList.add('danger');
+  else if (timeLeft <= 60) el.classList.add('warning');
+}
 
-  function timeOut() {
-    document.getElementById('to-correct').textContent = score;
-    document.getElementById('to-wrong').textContent = wrongCount;
-    const unanswered = 10 - (score + wrongCount + skipCount);
-    document.getElementById('to-skip').textContent = unanswered;
-    sendResults('timeout');
-    showScreen('timeout-screen');
-  }
+function timeOut() {
+  clearInterval(timerInterval);
+  document.getElementById('to-correct').textContent = score;
+  document.getElementById('to-wrong').textContent = wrongCount;
+  const unanswered = 10 - (score + wrongCount + skipCount);
+  document.getElementById('to-skip').textContent = unanswered;
+  sendResults('timeout');
+  showScreen('timeout-screen');
+}
 
-  function endQuiz() {
-    clearInterval(timerInterval);
-    const pct = (score / 10) * 100;
-    const deg = (pct / 100) * 360;
-    document.getElementById('result-ring').style.setProperty('--score-deg', deg + 'deg');
-    document.getElementById('result-score').innerHTML = `${score}<span>/ 10</span>`;
-    document.getElementById('rb-correct').textContent = score;
-    document.getElementById('rb-wrong').textContent = wrongCount;
-    document.getElementById('rb-skip').textContent = skipCount;
-    let title, sub;
-    if (score >= 9)      { title = 'Outstanding! 🏆'; sub = 'Master of adjective suffixes!'; }
-    else if (score >= 7) { title = 'Great! 🎉'; sub = 'Strong understanding of -al, -able, -ive, -ant.'; }
-    else if (score >= 5) { title = 'Good Effort 📚'; sub = 'Review the suffix rules and try again.'; }
-    else                 { title = 'Keep Practising 💪'; sub = 'Focus on the patterns from the Vocabulary Focus box.'; }
-    document.getElementById('result-title').textContent = title;
-    document.getElementById('result-sub').textContent = sub;
-    buildReport();
-    sendResults('completed');
-    showScreen('result-screen');
-  }
+function endQuiz() {
+  clearInterval(timerInterval);
+  const pct = (score / 10) * 100;
+  const deg = (pct / 100) * 360;
+  document.getElementById('result-ring').style.setProperty('--score-deg', deg + 'deg');
+  document.getElementById('result-score').innerHTML = `${score}<span>/ 10</span>`;
+  document.getElementById('rb-correct').textContent = score;
+  document.getElementById('rb-wrong').textContent = wrongCount;
+  document.getElementById('rb-skip').textContent = skipCount;
+  
+  let title, sub;
+  if (score >= 9) { title = 'Outstanding! 🏆'; sub = 'Master of adjective suffixes!'; }
+  else if (score >= 7) { title = 'Great Job! 🎉'; sub = 'Strong understanding of -al, -able, -ive, -ant.'; }
+  else if (score >= 5) { title = 'Good Effort 📚'; sub = 'Review the suffix rules and try again.'; }
+  else { title = 'Keep Practising 💪'; sub = 'Focus on the patterns from the Vocabulary Focus box.'; }
+  
+  document.getElementById('result-title').textContent = title;
+  document.getElementById('result-sub').textContent = sub;
+  buildReport();
+  sendResults('completed');
+  showScreen('result-screen');
+}
 
-  function buildReport() {
-    const lines = [
-      `ADJECTIVE SUFFIXES QUIZ (-al, -able, -ive, -ant)`,
-      `Student: ${studentName}`,
-      `Date: ${new Date().toLocaleString()}`,
-      `Score: ${score}/10 (${Math.round(score*10)}%)`,
-      ``,
-      `QUESTION LOG:`,
-      `──────────────────────────────────────────────`,
-    ];
-    answerLog.forEach((item, i) => {
-      const icon = item.result === 'correct' ? '✓' : item.result === 'skipped' ? '—' : '✗';
-      lines.push(`Q${i+1} [${icon}] ${item.q}`);
-      if (item.result !== 'correct') {
-        lines.push(`    Your answer: "${item.typed}"   Correct: "${item.correct}"`);
-      }
+function buildReport() {
+  const lines = [
+    `ADJECTIVE SUFFIXES QUIZ (-al, -able, -ive, -ant)`,
+    `Student: ${studentName}`,
+    `Date: ${new Date().toLocaleString()}`,
+    `Score: ${score}/10 (${Math.round(score*10)}%)`,
+    ``,
+    `QUESTION LOG:`,
+    `──────────────────────────────────────────────`,
+  ];
+  answerLog.forEach((item, i) => {
+    const icon = item.result === 'correct' ? '✓' : item.result === 'skipped' ? '—' : '✗';
+    lines.push(`Q${i+1} [${icon}] ${item.q}`);
+    if (item.result !== 'correct') {
+      lines.push(`    Your answer: "${item.typed}"   Correct: "${item.correct}"`);
+    }
+  });
+  lines.push(`──────────────────────────────────────────────`);
+  document.getElementById('report-text').value = lines.join('\n');
+}
+
+function copyReport() {
+  const ta = document.getElementById('report-text');
+  ta.select();
+  try {
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const c = document.getElementById('copy-confirm');
+      c.classList.remove('hidden');
+      setTimeout(() => c.classList.add('hidden'), 3000);
     });
-    lines.push(`──────────────────────────────────────────────`);
-    document.getElementById('report-text').value = lines.join('\n');
-  }
+  } catch(e) { document.execCommand('copy'); }
+}
 
-  function copyReport() {
-    const ta = document.getElementById('report-text');
-    ta.select();
-    try {
-      navigator.clipboard.writeText(ta.value).then(() => {
-        const c = document.getElementById('copy-confirm');
-        c.classList.remove('hidden');
-        setTimeout(() => c.classList.add('hidden'), 3000);
-      });
-    } catch(e) { document.execCommand('copy'); }
-  }
-
-  function sendResults(status) {
-    const pct = Math.round((score / 10) * 100);
-    const fd = new FormData();
-    fd.append('name',   studentName);
-    fd.append('score',  pct);
-    fd.append('quiz',   'Adjective Suffixes B2');
-    fd.append('date',   new Date().toLocaleString());
-    fd.append('status', status);
-    fetch('https://script.google.com/macros/s/AKfycbzvhd9K2CVC9_EPkhAEYFDp8K1CBpGUWNrEAEVC4w4Q8eHh5uDFO_aaKPMcH-Tajv5U/exec', { method:'POST', body: fd }).catch(() => {});
-  }
+function sendResults(status) {
+  const pct = Math.round((score / 10) * 100);
+  const fd = new FormData();
+  fd.append('name', studentName);
+  fd.append('score', pct);
+  fd.append('quiz', 'Adjective Suffixes B2');
+  fd.append('date', new Date().toLocaleString());
+  fd.append('status', status);
+  fetch(SHEETS_URL, { method: 'POST', body: fd }).catch(() => {});
+}
 </script>
 </body>
 </html>
